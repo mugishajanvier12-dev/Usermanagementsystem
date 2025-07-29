@@ -13,7 +13,7 @@ import UserDetail from './pages/UserDetail';
 import NotFound from './pages/NotFound';
 
 function App() {
-  const isAuthenticated = localStorage.getItem('musha_front_token');
+  const isAuthenticated = localStorage.getItem('front_token');
   
   return (
     <Router>
