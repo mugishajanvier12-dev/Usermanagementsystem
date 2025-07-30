@@ -43,7 +43,9 @@ const authenticateToken = (req, res, next) => {
     next();
   });
 };
-
+app.get('/',(req,res) => {
+  res.send("Hello World")
+})
 app.post('/api/register', async (req, res) => {
   try {
     const { username, email, password } = req.body;

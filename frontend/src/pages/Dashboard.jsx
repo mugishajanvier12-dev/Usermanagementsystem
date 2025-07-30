@@ -14,7 +14,7 @@ const Dashboard = () => {
   const usersPerPage = 3;
   
   const handleLogout = () => {
-    localStorage.removeItem('musha_front_token');
+    localStorage.removeItem('front_token');
     window.location.href = '/login';
   }
 
