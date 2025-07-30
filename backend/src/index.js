@@ -8,7 +8,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT;
+const SERVER_PORT = process.env.PORT;
 
 app.use(cors());
 app.use(express.json());
@@ -19,6 +19,7 @@ const db = mysql.createConnection({
   user: process.env.DB_USER ,
   password: process.env.DB_PASSWORD ,
   database: process.env.DB_NAME ,
+  // port: process.env.DB_PORT || 3306,
 });
 
 db.connect(err => {
@@ -45,6 +46,7 @@ const authenticateToken = (req, res, next) => {
 app.get('/',(req,res) => {
   res.send("Hello World")
 })
+
 app.post('/api/register', async (req, res) => {
   try {
     const { username, email, password } = req.body;
@@ -115,10 +117,10 @@ app.post('/api/login', (req, res) => {
       }
       
       const user = results[0];      
-      
+  
       const validPassword = await bcrypt.compare(password, user.password);
       if (!validPassword) {
-        return res.status(400).json({ message: 'Invalid credentials' });
+        return res.status(400).json({ message: 'Invalid credentials123' });
       }
       
       const token = jwt.sign(
@@ -282,8 +284,8 @@ app.get('/home', (req, res) => {
   res.json({ message: 'Welcome to our home page api'})
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+app.listen(SERVER_PORT, () => {
+  console.log(`Server running on port ${SERVER_PORT}`);
 });
 
 
