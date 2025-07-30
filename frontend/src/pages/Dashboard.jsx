@@ -14,7 +14,7 @@ const Dashboard = () => {
   const usersPerPage = 3;
   
   const handleLogout = () => {
-    localStorage.removeItem('front_token');
+    localStorage.removeItem('f_token');
     window.location.href = '/login';
   }
 

@@ -2,7 +2,10 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const mysql = require('mysql2');
-const cors = require('cors');
+app.use(cors({
+  origin: 'https://usermanagementsystem12345.netlify.app',
+  credentials: true
+}));
 const dotenv = require('dotenv');
 
 dotenv.config();
