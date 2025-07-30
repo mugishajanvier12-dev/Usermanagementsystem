@@ -1,5 +1,4 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const mysql = require('mysql2');
@@ -12,8 +11,8 @@ const app = express();
 const PORT = process.env.PORT;
 
 app.use(cors());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true}))
 
 const db = mysql.createConnection({
   host: process.env.DB_HOST ,
