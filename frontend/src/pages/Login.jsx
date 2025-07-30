@@ -20,7 +20,7 @@ const Login = () => {
       setLoading(true);
       const response = await api.post("/login", { username, password });
       if (response.data) {
-        localStorage.setItem("musha_front_token", response.data.token);
+        localStorage.setItem("f_token", response.data.token);
         window.location.href = "/dashboard";
         navigate("/dashboard");
       }
