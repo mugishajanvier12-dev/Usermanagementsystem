@@ -2,10 +2,8 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const mysql = require('mysql2');
-app.use(cors({
-  origin: 'https://usermanagementsystem12345.netlify.app',
-  credentials: true
-}));
+const cors = require('cors')
+
 const dotenv = require('dotenv');
 
 dotenv.config();
@@ -13,7 +11,10 @@ dotenv.config();
 const app = express();
 const SERVER_PORT = process.env.PORT;
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://usermanagementsystem12345.netlify.app',
+  credentials: true
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true}))
 
