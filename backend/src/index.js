@@ -33,13 +33,13 @@ const db = mysql.createPool({
   // port: process.env.DB_PORT || 3306,
 });
 
-db.connect(err => {
+db.getConnection((err, connection) => {
   if (err) {
     console.error('Error connecting to MySQL database:', err);
     return;
   }
   console.log('Connected to MySQL database');
- 
+  connection.release(); // ✅ Always release the connection back to the pool
 });
 
 const authenticateToken = (req, res, next) => {
