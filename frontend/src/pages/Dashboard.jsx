@@ -26,8 +26,7 @@ const Dashboard = () => {
       setTotalUsers(response.data.length);
       setTotalPages(Math.ceil(response.data.length / usersPerPage));
     } catch (err) {
-      setError(err.message);
-    } finally {
+ setError(err.response?.data?.message || err.message);    } finally {
       setLoading(false);
     }
   }
